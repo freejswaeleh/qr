@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Our Restaurant's Instagram" data-ar="انستغرام مطعمنا">Our Restaurant's Instagram</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Arabic font (e.g., Cairo) from Google Fonts for better Arabic display -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; /* Default for English */
+            background-color: #f7f7f7; /* Light gray background */
+            position: relative; /* Needed for absolute positioning of carousel */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+        }
+        body[lang="ar"] {
+            font-family: 'Cairo', sans-serif; /* For Arabic */
+        }
+        .container {
+            max-width: 90%; /* Fluid width for responsiveness */
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            position: relative; /* Ensure it stays above the overlay */
+            z-index: 10; /* Bring content to front */
+        }
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px; /* Max width for larger screens */
+            }
+        }
+
+        /* Styles for the background carousel */
+        #background-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Push behind everything */
+        }
+
+        .carousel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire area */
+            opacity: 0; /* Hidden by default */
+            transition: opacity 1.5s ease-in-out; /* Smooth fade transition */
+        }
+
+        .carousel-image.active {
+            opacity: 1; /* Active image is visible */
+        }
+
+        /* Overlay for text readability */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            z-index: 0; /* Between carousel and content */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800" lang="en">
+
+    <!-- Background Carousel -->
+    <div id="background-carousel" class="absolute inset-0 overflow-hidden">
+        <!-- Placeholder images for the carousel. Replace with your actual background images. -->
+        <img src="images/1.jpg" class="carousel-image active" alt="Restaurant interior 1">
+        <img src="images/2.jpg" class="carousel-image" alt="Restaurant interior 2">
+        <img src="images/3.jpg" class="carousel-image" alt="Restaurant interior 3">
+        <img src="images/4.jpg" class="carousel-image" alt="Restaurant interior 4">
+    </div>
+
+    <!-- Overlay for readability -->
+    <div class="overlay"></div>
+
+    <div class="container min-h-screen flex flex-col justify-between relative z-10">
+        <!-- Language Toggle Button -->
+        <div class="flex justify-end py-4">
+            <button id="language-toggle" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-full shadow hover:bg-gray-300 transition-colors text-sm md:text-base">
+                العربية
+            </button>
+        </div>
+
+        <!-- Header Section -->
+        <header class="text-center py-8">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white mb-4">
+                <span class="block" data-en="Freej Swaeleh" data-ar="فريج صويلح">Freej Swaeleh</span>
+                <span class="block text-3xl md:text-4xl text-white" data-en="Restaurant" data-ar="مطعم">Restaurant</span>
+            </h1>
+            <p class="text-lg md:text-xl text-white" data-en="Follow us on Instagram for the latest updates, mouth-watering photos, and special offers!" data-ar="تابعونا على انستغرام للحصول على آخر التحديثات والصور الشهية والعروض الخاصة!">Follow us on Instagram for the latest updates, mouth-watering photos, and special offers!</p>
+        </header>
+
+        <!-- Instagram Links Section -->
+        <main class="flex-grow flex items-center justify-center py-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+
+                <!-- Instagram Link Card (Kuwait Branch) -->
+                <a href="https://www.instagram.com/fireej_9wail7?igsh=YzEzZjhjOTFpcDUw" target="_blank" rel="noopener noreferrer"
+                   class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center text-center border-b-4 border-red-500 hover:border-red-700">
+                    <img src="images/insta.png" alt="Kuwait Branch Instagram" class="w-24 h-24 rounded-xl mb-4 object-cover">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-2" data-en="Kuwait Branch" data-ar="فرع الكويت">Kuwait Branch</h2>
+                    <p class="text-gray-600 mb-4" data-en="Follow our Kuwait branch for local updates!" data-ar="تابعوا فرعنا في الكويت للحصول على آخر التحديثات المحلية!">Follow our Kuwait branch for local updates!</p>
+                    <span class="inline-block bg-red-600 text-white px-5 py-2 rounded-full text-lg font-medium hover:bg-red-700 transition-colors" data-en="Visit Kuwait" data-ar="زيارة فرع الكويت">
+                        Visit Kuwait
+                    </span>
+                </a>
+
+                <!-- Instagram Link Card (United Kingdom Branch) -->
+                <a href="https://www.instagram.com/fireej_9wail7uk?igsh=MWNrMnhlcDhidHZncQ==" target="_blank" rel="noopener noreferrer"
+                   class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center text-center border-b-4 border-indigo-500 hover:border-indigo-700">
+                    <img src="images/insta.png" alt="UK Branch Instagram" class="w-24 h-24 rounded-xl mb-4 object-cover">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-2" data-en="United Kingdom Branch" data-ar="فرع المملكة المتحدة">United Kingdom Branch</h2>
+                    <p class="text-gray-600 mb-4" data-en="Discover our UK culinary delights!" data-ar="اكتشفوا أشهى مأكولاتنا في المملكة المتحدة!">Discover our UK culinary delights!</p>
+                    <span class="inline-block bg-indigo-600 text-white px-5 py-2 rounded-full text-lg font-medium hover:bg-indigo-700 transition-colors" data-en="Visit UK" data-ar="زيارة فرع المملكة المتحدة">
+                        Visit UK
+                    </span>
+                </a>
+
+                <!-- Instagram Link Card (Saudi Arabia Branch) -->
+                <a href="https://www.instagram.com/fireej_9wail7.ksa?igsh=ZmFqdDFxM2lmYWhj" target="_blank" rel="noopener noreferrer"
+                   class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center text-center border-b-4 border-teal-500 hover:border-teal-700">
+                    <img src="images/insta.png" alt="Saudi Arabia Branch Instagram" class="w-24 h-24 rounded-xl mb-4 object-cover">
+                    <h2 class="text-2xl font-semibold text-gray-900 mb-2" data-en="Saudi Arabia Branch" data-ar="فرع المملكة العربية السعودية">Saudi Arabia Branch</h2>
+                    <p class="text-600 mb-4" data-en="Explore our presence in Saudi Arabia!" data-ar="استكشفوا تواجدنا في المملكة العربية السعودية!">Explore our presence in Saudi Arabia!</p>
+                    <span class="inline-block bg-teal-600 text-white px-5 py-2 rounded-full text-lg font-medium hover:bg-teal-700 transition-colors" data-en="Visit KSA" data-ar="زيارة فرع السعودية">
+                        Visit KSA
+                    </span>
+                </a>
+
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="text-center py-6 text-gray-500 text-sm">
+            <p data-en="&copy; 2025 Freej Swaeleh Restaurant. All rights reserved." data-ar="&copy; 2025 مطعم فريج صويلح. جميع الحقوق محفوظة.">&copy; 2025 Freej Swaeleh Restaurant. All rights reserved.</p>
+            <p data-en="Connect with us!" data-ar="تواصلوا معنا!">Connect with us!</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const langToggleBtn = document.getElementById('language-toggle');
+            const html = document.documentElement; // Get the <html> element
+            const body = document.body; // Get the <body> element
+
+            // Carousel variables
+            const carouselImages = document.querySelectorAll('.carousel-image');
+            let currentImageIndex = 0;
+            const carouselIntervalTime = 5000; // Time in milliseconds (5 seconds)
+
+            // Function to update text content based on language
+            const updateContent = (lang) => {
+                // Update the lang attribute of the html tag
+                html.setAttribute('lang', lang);
+                // Update the dir attribute of the html tag for RTL/LTR
+                html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+                // Update text content for elements with data-en and data-ar attributes
+                document.querySelectorAll('[data-en], [data-ar]').forEach(element => {
+                    if (lang === 'ar' && element.dataset.ar) {
+                        element.textContent = element.dataset.ar;
+                    } else if (lang === 'en' && element.dataset.en) {
+                        element.textContent = element.dataset.en;
+                    }
+                });
+
+                // Update the title specifically as it's in the head
+                const titleElement = document.querySelector('title');
+                if (titleElement) {
+                    if (lang === 'ar' && titleElement.dataset.ar) {
+                        titleElement.textContent = titleElement.dataset.ar;
+                    } else if (lang === 'en' && titleElement.dataset.en) {
+                        titleElement.textContent = titleElement.dataset.en;
+                    }
+                }
+
+                // Update the button text
+                langToggleBtn.textContent = lang === 'en' ? 'العربية' : 'English';
+            };
+
+            // Function to change carousel image
+            const changeCarouselImage = () => {
+                // Remove 'active' class from the current image to hide it
+                if (carouselImages[currentImageIndex]) {
+                    carouselImages[currentImageIndex].classList.remove('active');
+                }
+
+                // Move to the next image, loop back to the start if the end is reached
+                currentImageIndex = (currentImageIndex + 1) % carouselImages.length;
+
+                // Add 'active' class to the new current image to show it
+                if (carouselImages[currentImageIndex]) {
+                    carouselImages[currentImageIndex].classList.add('active');
+                }
+            };
+
+            // Initial language setting (default to English)
+            updateContent('en');
+
+            // Event listener for the language toggle button
+            langToggleBtn.addEventListener('click', () => {
+                const currentLang = html.getAttribute('lang');
+                const newLang = currentLang === 'en' ? 'ar' : 'en';
+                updateContent(newLang);
+            });
+
+            // Initialize and start the carousel
+            if (carouselImages.length > 0) {
+                // Ensure the first image is active on load
+                carouselImages[0].classList.add('active');
+                // Start the automatic image cycling
+                setInterval(changeCarouselImage, carouselIntervalTime);
+            }
+        });
+    </script>
+
+</body>
+</html>
+
